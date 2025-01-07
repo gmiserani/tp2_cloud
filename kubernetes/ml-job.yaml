@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ml-job
+  namespace: gabrielafreitas
+spec:
+  template:
+    metadata:
+      labels:
+        app: gabrielafreitas-ml-container
+    spec:
+      containers:
+      - name: ml-container
+        image: quay.io/gmiserani/playlists-recommender-system-ml:0.3
+        volumeMounts:
+        - name: datasets-volume
+          mountPath: /app/datasets
+        - name: persistent-storage
+          mountPath: /model
+      volumes:
+      - name: datasets-volume
+        hostPath:
+          path: /home/datasets
+          type: Directory
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: playlist-recommender-pvc-gabrielafreitas
+      restartPolicy: Never

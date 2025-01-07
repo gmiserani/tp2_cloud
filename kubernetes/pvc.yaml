@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: playlist-recommender-pvc-gabrielafreitas
+  namespace: gabrielafreitas
+spec:
+  storageClassName: default-storage-class-gabrielafreitas
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      namespace: gabrielafreitas
