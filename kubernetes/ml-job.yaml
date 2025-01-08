@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ml-job
+  name: ml-job-ds1 
   namespace: gabrielafreitas
 spec:
   template:
@@ -13,8 +13,10 @@ spec:
       - name: ml-container
         image: quay.io/gmiserani/playlists-recommender-system-ml:0.3
         env:
-        - name: DATASET_URL
-          value: /app/datasets/spotify/2023_spotify_ds1.csv
+        - name: DATASET_NAME
+          value: ds1.csv 
+        - name: DATASET_BASE_PATH
+          value: /app/datasets/spotify/ 
         - name: OUTPUT_PATH
           value: /model/recommendation_rules.pkl
         volumeMounts:
