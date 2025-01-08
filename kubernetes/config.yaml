@@ -11,5 +11,5 @@ ml_container:
 
 # Configurações do Frontend Container
 frontend_container:
-  image: quay.io/gmiserani/playlists-recommender-system-app:0.5
+  image: quay.io/gmiserani/playlists-recommender-system-app:0.6
   model_path: /model/recommendation_rules.pkl

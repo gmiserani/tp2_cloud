@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: frontend-container
-        image: quay.io/gmiserani/playlists-recommender-system-app:0.5
+        image: quay.io/gmiserani/playlists-recommender-system-app:0.6
         ports:
         - containerPort: 52021
         env:
