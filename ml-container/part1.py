@@ -5,7 +5,14 @@ from pathlib import Path
 
 
 # Carregar o dataset com o header especificado
-df = pd.read_csv("/app/datasets/spotify/2023_spotify_ds1.csv", header=0)
+# df = pd.read_csv("/app/datasets/spotify/2023_spotify_ds1.csv", header=0)
+
+dataset_name = os.getenv("DATASET_NAME", "ds1.csv")  # Valor padrão caso a variável não esteja definida
+dataset_base_path = os.getenv("DATASET_BASE_PATH", "/app/datasets/spotify/")
+
+dataset_path = Path(dataset_base_path) / dataset_name
+
+df = pd.read_csv(dataset_path, header=0)
 
 # Selecionar as colunas relevantes: agruparemos por 'pid' e coletaremos os nomes das músicas
 transactions = df.groupby("pid")["track_name"].apply(list).tolist()
