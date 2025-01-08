@@ -1,0 +1,14 @@
+# Configurações gerais para o projeto
+app_name: playlist-recommender
+namespace: gabrielafreitas
+
+# Configurações do ML Container
+ml_container:
+  image: quay.io/gmiserani/playlists-recommender-system-ml:0.3
+  dataset_url: /app/datasets/spotify/2023_spotify_ds1.csv
+  output_path: /model/recommendation_rules.pkl
+
+# Configurações do Frontend Container
+frontend_container:
+  image: quay.io/gmiserani/playlists-recommender-system-app:0.4
+  model_path: /model/recommendation_rules.pkl

@@ -20,6 +20,9 @@ spec:
         image: quay.io/gmiserani/playlists-recommender-system-app:0.4
         ports:
         - containerPort: 52021
+        env:
+        - name: MODEL_PATH
+          value: /model/recommendation_rules.pkl
         volumeMounts:
         - name: persistent-storage
           mountPath: /model

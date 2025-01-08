@@ -1,0 +1,11 @@
+project: gabrielafreitas-project
+source:
+  repoURL: https://github.com/gmiserani/tp2_cloud.git
+  path: kubernetes/
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+  namespace: gabrielafreitas
+syncPolicy:
+  automated:
+    selfHeal: true

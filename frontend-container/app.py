@@ -4,11 +4,12 @@ import datetime
 
 app = Flask(__name__)
 
+model_path = os.getenv("MODEL_PATH", "/model/recommendation_rules.pkl")
 
-app.model = pickle.load(open("/model/recommendation_rules.pkl", "rb"))
-with open("/model/recommendation_rules.pkl", "rb") as f:
+app.model = pickle.load(open(model_path, "rb"))
+with open(model_path, "rb") as f:
     rules = pickle.load(f)
-    for rule in rules[:5]:  # Mostrar as primeiras 5 regras
+    for rule in rules[:5]:
         print(rule)
 
 app.model_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -21,7 +22,7 @@ def home():
 def recommend():
     data = request.get_json()
     user_songs = set(data.get("songs", []))
-    print(f"Received songs: {user_songs}")  # Log para depuração
+    print(f"Received songs: {user_songs}")
 
     recommendations = []
     for antecedent, consequent, confidence in app.model:
@@ -30,8 +31,8 @@ def recommend():
 
             recommendations.extend(consequent - user_songs)
 
-    recommendations = list(set(recommendations))[:10]  # Limitar a 10 recomendações
-    print(f"Generated recommendations: {recommendations}")  # Log para depuração
+    recommendations = list(set(recommendations))[:10]
+    print(f"Generated recommendations: {recommendations}")
 
     response = {
         'songs': recommendations,
