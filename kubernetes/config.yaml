@@ -4,7 +4,7 @@ namespace: gabrielafreitas
 
 # Configurações do ML Container
 ml_container:
-  image: quay.io/gmiserani/playlists-recommender-system-ml:0.4
+  image: quay.io/gmiserani/playlists-recommender-system-ml:0.5
   dataset: ds2.csv
   dataset_base_path: /app/datasets/spotify/
   output_path: /model/recommendation_rules.pkl
