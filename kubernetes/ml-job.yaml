@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ml-job-ds2 
+  name: ml-job-ds3 
   namespace: gabrielafreitas
 spec:
   template:
