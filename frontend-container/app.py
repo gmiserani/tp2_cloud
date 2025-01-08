@@ -4,10 +4,8 @@ import datetime
 
 app = Flask(__name__)
 
-model_path = os.getenv("MODEL_PATH", "/model/recommendation_rules.pkl")
-
-app.model = pickle.load(open(model_path, "rb"))
-with open(model_path, "rb") as f:
+app.model = pickle.load(open("/model/recommendation_rules.pkl", "rb"))
+with open("/model/recommendation_rules.pkl", "rb") as f:
     rules = pickle.load(f)
     for rule in rules[:5]:
         print(rule)
