@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from fpgrowth_py import fpgrowth
 import pickle
