@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: ml-container
-        image: quay.io/gmiserani/playlists-recommender-system-ml:0.6
+        image: quay.io/gmiserani/playlists-recommender-system-ml:0.7
         env:
         - name: DATASET_NAME
           value: 2023_spotify_ds2.csv
