@@ -6,7 +6,7 @@ metadata:
   labels:
     app: frontend-container
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: gabrielafreitas-frontend-container
