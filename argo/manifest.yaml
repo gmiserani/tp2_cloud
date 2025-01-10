@@ -8,4 +8,5 @@ destination:
   namespace: gabrielafreitas
 syncPolicy:
   automated:
+    prune: true
     selfHeal: true
